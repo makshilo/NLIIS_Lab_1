@@ -152,22 +152,9 @@ def check_word_in_dictionary(word):
         return True
 
 
-# text = read_text('input.txt')
-# text = text_preprocessing(text)
-# text = add_pos_tag(text)
-# text = lemmatize_text(text)
-# text = list(set(text))
-# text.sort()
-#
-#
-# processed_words = []
-# for word in text:
-#     processed_words.append(ProcessedWord(word, get_pos_tag(word)[0][1],
-#                                          get_prefixes(word, general_prefixes) + get_prefixes(word, negative_prefixes),
-#                                          get_suffixes(word, noun_suffixes) + get_suffixes(word, adjective_suffixes) +
-#                                          get_suffixes(word, verb_suffixes) + get_suffixes(word, adverb_suffixes)))
-#
-#
-# # print processed words
-# for word in processed_words:
-#     print(word)
+def generate_possible_words(word, prefixes, suffixes):
+    output_words = []
+    for prefix in prefixes:
+        for suffix in suffixes:
+            output_words.append(prefix + word + suffix)
+    return output_words
